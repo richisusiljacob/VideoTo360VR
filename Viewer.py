@@ -1,12 +1,15 @@
 import tkinter as tk
 import tkinter.ttk as ttk
+import webbrowser,os
+import threading
+import PIL.ImageTk
+import PIL.Image
+import glob
+import shutil
 from tkinter import *
 from tkinter import filedialog
-from PIL import Image , ImageTk
-import webbrowser,os
-from opencv360 import FrameBreaker,makeCollageAble,collage
-from process import *
-import threading
+from opencv360 import FrameBreaker,makeCollageAble,collage,process,panorama
+
 
 LARGEFONT =("Verdana", 35)
 
@@ -60,19 +63,18 @@ class StartPage(tk.Frame):
         
         #TITLE
         #titleimage
-        logo = Image.open("resources/360-camera.png")
-        logo = logo.resize((80 ,80),Image.ANTIALIAS)
-        logoPlace = ImageTk.PhotoImage(logo)
+        logo = PIL.Image.open(fp="resources/360-camera.png")
+        logo = logo.resize((80 ,80),PIL.Image.ANTIALIAS)
+        logoPlace = PIL.ImageTk.PhotoImage(logo)
         label1 = Label(image=logoPlace)
-        label1.image = logoPlace
-        #label1.place(x=260, y=20)
+        label1.image = logoPlace 
         label1.grid(column=1,row=0,padx=10,pady=10)
         #Title Text
 
         Title = Label(self, text = 'openCV360 v1.04')
         Title.config(font=("Courier",14))
         Title.grid(column=0,row=1,padx=30,pady=10)
-        #Title.place(x=100 , y = -50)
+        
 
         Filename = ""
         #FILE Operations
@@ -85,14 +87,13 @@ class StartPage(tk.Frame):
 
 
         File1Prompt = Label(self, text = 'Choose Video 1')
-        #File1Prompt.place(x = 15 , y = 145)
+       
         File1Prompt.grid(column=0,row=3,padx=10,pady=10)
         button_chooseVid1 = ttk.Button(self, text = "Browse Files" , command = browseFiles1)
         Vid1Name = ttk.Entry(self , width = 50)
-        #Vid1Name.place(x =15 , y = 165)
+       
         Vid1Name.grid(column=0,row=4,padx=10,pady=10)
 
-        #button_chooseVid1.place(x = 330 , y = 163)
         button_chooseVid1.grid(column=1,row=4,padx=10,pady=10)
 
 
@@ -104,14 +105,13 @@ class StartPage(tk.Frame):
             browseFiles2.Video2Path = Vid2Name.get()
 
         File2Prompt = Label(self, text = 'Choose Video 2')
-        #File2Prompt.place(x = 15 , y = 245)
+      
         File2Prompt.grid(column=0,row=5,padx=10,pady=10)
         button_chooseVid2 = ttk.Button(self, text = "Browse Files" , command = browseFiles2)
         Vid2Name = ttk.Entry(self , width = 50)
-        #Vid2Name.place(x =15 , y = 265)
+      
         Vid2Name.grid(column=0,row=6,padx=10,pady=10)
 
-        #button_chooseVid2.place(x = 330 , y = 263)
         button_chooseVid2.grid(column=1,row=6,padx=10,pady=10)
 
 
@@ -123,14 +123,13 @@ class StartPage(tk.Frame):
             browseFiles3.Video3Path = Vid3Name.get()
 
         File3Prompt = Label(self, text = 'Choose Video 3')
-        #File3Prompt.place(x = 15 , y = 345)
+    
         File3Prompt.grid(column=0,row=7,padx=10,pady=10)
         button_chooseVid3 = ttk.Button(self, text = "Browse Files" , command = browseFiles3)
         Vid3Name = ttk.Entry(self , width = 50)
-        #Vid3Name.place(x =15 , y = 365)
+       
         Vid3Name.grid(column=0,row=8,padx=10,pady=10)
 
-        #button_chooseVid3.place(x = 330 , y = 363)
         button_chooseVid3.grid(column=1,row=8,padx=10,pady=10)
 
 
@@ -148,19 +147,19 @@ class StartPage(tk.Frame):
         FrameSlider = Scale( self, variable = v1, 
                 from_ = 5, to = 100, 
                 orient = HORIZONTAL ,length= 190)   
-        #FrameSlider.place(x=25 , y= 430)
+    
         FrameSlider.grid(column=0,row=10,padx=10,pady=5)
         
         FrameSliderLabel = Label(self, text = "Frame Skipper")
-        #FrameSliderLabel.place(x =15 ,y = 400)
+     
         FrameSliderLabel.grid(column=0,row=9,padx=10,pady=10)
         SelectedFrameSkipLabel = Label(self)
-        #SelectedFrameSkipLabel.place(x = 15  ,y= 470)
+    
         SelectedFrameSkipLabel.grid(column=0,row=11,padx=10,pady=10)
         
 
         SetFrameSkipButton = ttk.Button(self, text = 'SET', command = show1)
-        #SetFrameSkipButton.place(x= 240, y= 445 )
+        
         SetFrameSkipButton.grid(column=1,row=10,padx=10,pady=5)
 
         ##vid length warning
@@ -190,31 +189,35 @@ class StartPage(tk.Frame):
             th1.join()
             th2.join()
             th3.join()
-            """  th4 = threading.Thread(target= delete_blurred, args=( "output/vid1",))
+            """ th4 = threading.Thread(target= process.delete_blurred, args=( "output/vid1",))
             th4.start()
-            th5 = threading.Thread(target= delete_blurred, args=( "output/vid2",))
+            th5 = threading.Thread(target= process.delete_blurred, args=( "output/vid2",))
             th5.start()
-            th6 = threading.Thread(target= delete_blurred, args=( "output/vid3",))
+            th6 = threading.Thread(target= process.delete_blurred, args=( "output/vid3",))
             th6.start()
             th4.join()
             th5.join()
-            th6.join() """
+            th6.join()  """
+            process.delete_blurred("output/vid1")
+            process.delete_blurred("output/vid2")
+            process.delete_blurred("output/vid3")
             makeCollageAble.collageAble("output/vid1", "output/collage1/")
             makeCollageAble.collageAble("output/vid2", "output/collage2/")
             makeCollageAble.collageAble("output/vid3", "output/collage3/")
-            collage.collageMaker("output/collage1",1)
-            collage.collageMaker("output/collage2",2)
-            collage.collageMaker("output/collage3",3)
+            #collage.collageMaker("output/collage1",1)
+            #collage.collageMaker("output/collage2",2)
+            #collage.collageMaker("output/collage3",3)
+            print("completed")
             button_next['state'] = NORMAL
 
             
 
 
         button_run = ttk.Button(self,text = "RUN" ,command = getFrames)
-        #button_run.place(x = 200 , y = 510)
+
         button_run.grid(column=0,row=12,padx=5,pady=10)
-        button_next = ttk.Button(self,text = "NEXT" , command = lambda : controller.show_frame(Page1)  ,state= NORMAL) #DISABLE
-        #button_next.place(x = 290 , y = 510 ) 
+        button_next = ttk.Button(self,text = "NEXT" , command = lambda : controller.show_frame(Page1)  ,state= NORMAL) #DISABLED#NORMAL
+        
         button_next.grid(column=1,row=12,padx=5,pady=10)
        
           
@@ -225,13 +228,14 @@ class Page1(tk.Frame):
     
      
     def __init__(self, parent, controller):
+       
+            
         
-         
         tk.Frame.__init__(self, parent)
         
         style = ttk.Style(self)
         style.configure('lefttab.TNotebook', tabposition='wn')   
-
+        #img1 = PIL.ImageTk.PhotoImage(PIL.Image.open("output\collage1\FinalCollage.jpg"))
         tabControl = ttk.Notebook(self , style='lefttab.TNotebook')
         tab1 = ttk.Frame(tabControl)
         tab2 = ttk.Frame(tabControl)
@@ -243,6 +247,7 @@ class Page1(tk.Frame):
         tabControl.add(tab3, text ='Video 3')
         tabControl.add(tab4, text ='Confirm')
         tabControl.pack(expand = 1, fill ="both")
+
         def fullpath(Path):
             current = os.path.abspath(os.getcwd())
             Fullpath = str(current) + Path
@@ -254,8 +259,28 @@ class Page1(tk.Frame):
             fullpath= str(current) + Path
             print(fullpath)
             os.startfile(fullpath)  
-        
+            
+    
+        def createFinalDir(): 
+            for imgfile in os.scandir("output/final"):
+                    os.remove(imgfile.path)
 
+            print("creating final directory")
+            dst_dir = "output/final"
+
+            for file in glob.glob('output/vid*/*'):    
+                if file.endswith(".jpg"): 
+                    shutil.copy(file, dst_dir)
+                
+
+        
+        def stitchSIFT():
+            createFinalDir()
+            print("stitching")
+            panorama.PanoramaSIFT()
+           
+       
+        
         #tab1
         ttk.Label(tab1,text = "Details and Preview extracted frames from Video 1"
                 
@@ -265,11 +290,13 @@ class Page1(tk.Frame):
                        
                                     pady = 3)  
         
-        canvas1 = Canvas(tab1 , width =360,height=120,bg = 'black')
+        canvas1 = Canvas(tab1 , width =360,height=120)
+        #img1 = PIL.ImageTk.PhotoImage(PIL.Image.open("output\collage1\FinalCollage.jpg"))
         canvas1.grid(column= 0,row=1 ,padx=5,pady=5)
-        #img1 = ImageTk.PhotoImage(Image.open(fullpath("\output\collage1\FinalCollage.png")))
-        #canvas1.create_image(20,20,anchor=NW , image = img1)
-
+        #canvas1.create_image(0,0,anchor=NW , image = img1) 
+        
+       
+        
         button_view = ttk.Button(tab1,text ="View Images" , command = lambda: openfolder("\\output\\vid1"), 
         )
         button_view.grid(
@@ -291,6 +318,8 @@ class Page1(tk.Frame):
                                             pady = 3)
         canvas2 = Canvas(tab2 , width =360,height=120,bg = 'black')
         canvas2.grid(column= 0,row=1 ,padx=5,pady=5)
+        #img2 = PIL.ImageTk.PhotoImage(PIL.Image.open(fullpath("\output\collage2\FinalCollage.jpg")))
+        #canvas2.create_image(0,0,anchor=NW , image = img2)
         ttk.Button(tab2,text ="View Images" , command = lambda: openfolder("\\output\\vid2"), 
         ).grid(
             column= 0 , 
@@ -309,6 +338,8 @@ class Page1(tk.Frame):
                                             pady = 3)
         canvas3 = Canvas(tab3 , width =360,height=120,bg = 'black')
         canvas3.grid(column= 0,row=1 ,padx=5,pady=5)
+        #img3 = PIL.ImageTk.PhotoImage(PIL.Image.open(fullpath("\output\collage3\FinalCollage.jpg")))
+        #canvas3.create_image(0,0,anchor=NW , image = img3)
         ttk.Button(tab3,text ="View Images" , command = lambda: openfolder("\\output\\vid3"), 
         ).grid(
             column= 0 , 
@@ -319,10 +350,14 @@ class Page1(tk.Frame):
 
         #tab4
 
-        button_previous= ttk.Button(tab4, text =" << Previous",
-                            command = lambda : controller.show_frame(StartPage)).grid(column = 4,row = 1,padx=5,pady=5)
-        button_stitch= ttk.Button(tab4, text ="Stitch Panaroma",
-                            command = lambda : controller.show_frame(Page2)).grid(column = 5,row = 1,padx=20,pady=5)
+        button_previousp1= ttk.Button(self, text =" << Previous",
+                            command = lambda : controller.show_frame(StartPage)).pack() #grid(column = 4,row = 1,padx=5,pady=5)
+        
+        button_stitch= ttk.Button(self, text ="Stitch",
+                            command = lambda : stitchSIFT()).pack()#grid(column = 5,row = 1,padx=20,pady=5)
+
+        button_nextp1= ttk.Button(self, text ="Next >>",
+                            command = lambda : controller.show_frame(Page2) ,state = DISABLED).pack()#grid(column = 6,row = 1,padx=20,pady=5)
 
 
    
@@ -389,4 +424,3 @@ app.iconbitmap(r'resources/favicon.ico')
 app.title('OpenCV 360 V1.12')
 #qapp.geometry("500x600+100+20")
 app.mainloop()
-#hilolll
