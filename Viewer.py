@@ -204,9 +204,9 @@ class StartPage(tk.Frame):
             makeCollageAble.collageAble("output/vid1", "output/collage1/")
             makeCollageAble.collageAble("output/vid2", "output/collage2/")
             makeCollageAble.collageAble("output/vid3", "output/collage3/")
-            #collage.collageMaker("output/collage1",1)
-            #collage.collageMaker("output/collage2",2)
-            #collage.collageMaker("output/collage3",3)
+            collage.collageMaker("output/collage1",1)
+            collage.collageMaker("output/collage2",2)
+            collage.collageMaker("output/collage3",3)
             print("completed")
             button_next['state'] = NORMAL
 
