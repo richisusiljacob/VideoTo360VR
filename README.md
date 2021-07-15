@@ -122,6 +122,10 @@ This is  list of python packages you need to use the software and how to install
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
+<!-- OUTPUT -->
+## Output
+[![VideoTo360VR][output-screenshot]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/output/result.PNG)
+
 
 
 <!-- ROADMAP -->
@@ -187,3 +191,4 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [linkedin-url]: https://linkedin.com/in/github_username
 [product-screenshot1]: resources/mainWindowV1.PNG
 [product-screenshot2]: resources/mainWindowV2.PNG
+[output-screenshot]: output/result.PNG
