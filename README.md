@@ -191,4 +191,4 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [linkedin-url]: https://linkedin.com/in/github_username
 [product-screenshot1]: resources/mainWindowV1.PNG
 [product-screenshot2]: resources/mainWindowV2.PNG
-[output-screenshot]: output/result.PNG
+[output-screenshot]: resources/result.PNG
