@@ -63,8 +63,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project  
   This is an openCV Project that once completed will be able to take in video clips taken in different angles of your surroundings and turn them into one single 360 panorama image .
-[![VideoTo360VR][product-screenshot]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/mainWindowV1.PNG) 
-[![VideoTo360VR][product-screenshot]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/mainWindowV2.PNG)
+[![VideoTo360VR][product-screenshot1]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/mainWindowV1.PNG) 
+[![VideoTo360VR][product-screenshot2]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/mainWindowV2.PNG)
 <!--Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
@@ -185,5 +185,5 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/github_username
-[product-screenshot]: resources/mainWindowV1.PNG
-[product-screenshot]: resources/mainWindowV2.PNG
+[product-screenshot1]: resources/mainWindowV1.PNG
+[product-screenshot2]: resources/mainWindowV2.PNG
