@@ -124,7 +124,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- OUTPUT -->
 ## Output
-[![VideoTo360VR][output-screenshot]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/output/result.jpg)
+[![VideoTo360VR][output-screenshot]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/result.jpg)
 
 
 
