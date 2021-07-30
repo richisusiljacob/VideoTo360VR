@@ -11,7 +11,7 @@ from tkinter import filedialog
 from opencv360 import FrameBreaker,makeCollageAble,collage,process,panorama
 
 
-LARGEFONT =("Verdana", 35)
+LARGEFONT =("Verdana", 30)
 
 class app(tk.Tk):
     
@@ -367,8 +367,8 @@ class Page1(tk.Frame):
 class Page2(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        label = ttk.Label(self, text ="Page 2", font = LARGEFONT)
-        label.grid(row = 0, column = 4, padx = 10, pady = 10)
+        label = ttk.Label(self, text ="To view the panorama", font = LARGEFONT)
+        label.grid(row = 0, column = 2, padx = 10, pady = 10)
   
         # button to show frame 2 with text
         # layout2
@@ -386,9 +386,9 @@ class Page2(tk.Frame):
      
         # putting the button in its place by
         # using grid
-        button2.grid(row = 2, column = 1, padx = 10, pady = 10)
+        button2.grid(row = 1, column = 2, padx = 10, pady = 10)
         canvas24= Canvas(self, width =360,height=120,bg = 'black')
-        canvas24.grid(column= 0,row=1 ,padx=5,pady=5)
+        canvas24.grid(column= 4,row=1 ,padx=10,pady=10)
         button3 = ttk.Button(self, text ="PanoViewer",
                             command = lambda : openweb())
         def openweb():
@@ -396,7 +396,7 @@ class Page2(tk.Frame):
      
         # putting the button in its place by
         # using grid
-        button3.grid(row = 3, column = 1, padx = 10, pady = 10)
+        button3.grid(row = 1, column = 3, padx = 10, pady = 10)
   
 # Driver Code
 app = app()
