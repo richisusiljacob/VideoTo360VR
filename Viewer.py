@@ -357,7 +357,7 @@ class Page1(tk.Frame):
                             command = lambda : stitchSIFT()).pack()#grid(column = 5,row = 1,padx=20,pady=5)
 
         button_nextp1= ttk.Button(self, text ="Next >>",
-                            command = lambda : controller.show_frame(Page2) ,state = DISABLED).pack()#grid(column = 6,row = 1,padx=20,pady=5)
+                            command = lambda : controller.show_frame(Page2) ,state = NORMAL).pack()#grid(column = 6,row = 1,padx=20,pady=5)
 
 
    
@@ -387,7 +387,16 @@ class Page2(tk.Frame):
         # putting the button in its place by
         # using grid
         button2.grid(row = 2, column = 1, padx = 10, pady = 10)
-  
+        canvas24= Canvas(self, width =360,height=120,bg = 'black')
+        canvas24.grid(column= 0,row=1 ,padx=5,pady=5)
+        button3 = ttk.Button(self, text ="PanoViewer",
+                            command = lambda : openweb())
+        def openweb():
+            webbrowser.open("https://panoraven.com/en/share-360-photo",new = new)
+     
+        # putting the button in its place by
+        # using grid
+        button3.grid(row = 3, column = 1, padx = 10, pady = 10)
   
 # Driver Code
 app = app()
