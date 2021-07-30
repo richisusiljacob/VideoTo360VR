@@ -17,7 +17,7 @@
     <img src="resources/360-camera.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">VideoTo360VR</h3>
+  <h3 align="center">VideoTo360Panorama</h3>
 
   <p align="center">
     OpenCV python based software to turn video clips into a single 360 panoroma image
@@ -62,9 +62,12 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project  
-  This is an openCV Project that once completed will be able to take in video clips taken in different angles of your surroundings and turn them into one single 360 panorama image .
-[![VideoTo360VR][product-screenshot1]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/mainWindowV1.PNG) 
-[![VideoTo360VR][product-screenshot2]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/mainWindowV2.PNG)
+   Convert multiple Videos Shot into single 360 panoramic Image using openCV image stitching.
+[![VideoTo360Panorama][product-screenshot]](https://github.com/AmolDerickSoans/VideoTo360VR/blob/main/resources/startpage.PNG)
+[![Page1][product-screenshot1]](https://github.com/AmolDerickSoans/VideoTo360VR/blob/main/resources/page1.PNG)
+
+
+
 <!--Here's a blank template to get started:
 **To avoid retyping too much info. Do a search and replace with your text editor for the following:**
 `github_username`, `repo_name`, `twitter_handle`, `email`, `project_title`, `project_description`
@@ -72,8 +75,8 @@
 -->
 ### Built With
 
-* [Python]()
-* [OpenCv]()
+* [Python 3.9.5]()
+* [OpenCv 4.5.2]()
 * [Tkinter]()
 
 
@@ -98,7 +101,7 @@ This is  list of python packages you need to use the software and how to install
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/AmolDerickSoans/VideoTo360VR.git
+   git clone https://github.com/AmolDerickSoans/VideoTo360Panorama.git
    ```
 2. Install pip packages mentioned above
 3. Run
@@ -122,16 +125,24 @@ This is  list of python packages you need to use the software and how to install
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<!-- OUTPUT -->
-## Output
-[![VideoTo360VR][output-screenshot]](https://github.com/richisusiljacob/VideoTo360VR/blob/main/resources/result.jpg)
+<!-- FEATURES -->
+
+- [x] Frame Extraction from video input
+- [x] Blur Detection and deletion of blurred frames
+- [ ] Preview Extracted Frames
+- [x] Multi-threading to optimise speed
+- [x] Panorama Stitching using SIFT
+- [ ] Panorama Viewer 
 
 
+<!--OUTPUT-->
+[![Output][output]](https://github.com/AmolDerickSoans/VideoTo360VR/blob/main/resources/result.jpg)
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a list of proposed features (and known issues).
+
 
 
 
@@ -158,9 +169,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Richi susil jacob - [@twitter_handle](https://twitter.com/twitter_handle) - email
+Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/AmolDerickSoans/VideoTo360VR/issues)
+Project Link: [https://github.com/github_username/repo_name](https://github.com/AmolDerickSoans/VideoTo360Panorama/issues)
 
 
 
@@ -168,7 +179,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 ## Acknowledgements
 
 * [Richi Susil Jacob]()
-* [richi2000.rs@gmail.com]()
+* []()
 * []()
 
 
@@ -180,15 +191,15 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/github_username/repo/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/AmolDerickSoans/VideoTo360VR/network/members
+[forks-url]: https://github.com/AmolDerickSoans/VideoTo360Panorama/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
 [stars-url]: https://github.com/AmolDerickSoans/VideoTo360VR/stargazers
 [issues-shield]:  https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/AmolDerickSoans/VideoTo360VR/issues
+[issues-url]: https://github.com/AmolDerickSoans/VideoTo360Panorama/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/github_username
-[product-screenshot1]: resources/mainWindowV1.PNG
-[product-screenshot2]: resources/mainWindowV2.PNG
-[output-screenshot]: resources/result.PNG
+[product-screenshot]: resources/startpage.PNG
+[product-screenshot1]: resources/page1.PNG
+[output]: resources/result.jpg

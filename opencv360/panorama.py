@@ -110,7 +110,7 @@ def complement_sky(pano):
     rows, cols = tmp.shape[:2]
     border = HEIGHT - rows
 
-    sky = cv2.imread('.resources\sky.jpg')
+    sky = cv2.imread('sky.jpg')
     sky = imutils.resize(sky, width=WIDTH)
     sky_rows = sky.shape[0]
     start = sky_rows - border
@@ -154,19 +154,15 @@ def complement_sky(pano):
 
 def PanoramaSIFT():
     start = time.time()
-    print('start' + str(start))
+
     files = os.listdir(DIR)
-    print('got files')
+    
     pano = stitch(files)
-    print("stitch comp")
     if pano is not None:
         pano = crop(pano)
-        print("stitch done")
         #pano = complement_sky(pano)
         cv2.imwrite(RESULT, pano)
     else:
         print('error')
     end = time.time()
-    print("time" + str(end -start))
-    
-    
+    print('cost ' + str(end-start))
